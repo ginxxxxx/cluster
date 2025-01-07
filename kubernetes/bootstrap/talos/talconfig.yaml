@@ -25,8 +25,7 @@ cniConfig:
 nodes:
   - hostname: "master1"
     ipAddress: "192.168.1.249"
-    installDiskSelector:
-      serial: "sdb"
+    installDisk: "/dev/sdb"
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
