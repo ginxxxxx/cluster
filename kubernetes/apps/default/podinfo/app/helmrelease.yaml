@@ -27,31 +27,6 @@ spec:
         strategy: RollingUpdate
         containers:
           app:
-            image:
-              repository: ghcr.io/stefanprodan/podinfo
-              tag: 35
-            env:
-              HTTP_PORT: &port 9898
-              LOG_WITHOUT_NEWLINE: true
-              LOG_IGNORE_PATH: /healthz
-              PROMETHEUS_ENABLED: true
-            probes:
-              liveness: &probes
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /healthz
-                    port: *port
-                  initialDelaySeconds: 0
-                  periodSeconds: 10
-                  timeoutSeconds: 1
-                  failureThreshold: 3
-              readiness: *probes
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 10m
@@ -68,7 +43,7 @@ spec:
         controller: podinfo
         ports:
           http:
-            port: *port
+            port: 9898
     ingress:
       app:
         className: external
