@@ -22,13 +22,6 @@ spec:
     remediation:
       retries: 3
   values:
-    controllers:
-      echo-server:
-        strategy: RollingUpdate
-        containers:
-          app:
-            image:
-              repository: ghcr.io/stefanprodan/modules/podinfo
     ingress:
       app:
         className: external
