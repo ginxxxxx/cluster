@@ -23,7 +23,7 @@ spec:
       retries: 3
   values:
     controllers:
-      echo:
+      podinfo:
         strategy: RollingUpdate
         containers:
           app:
@@ -65,7 +65,7 @@ spec:
         seccompProfile: { type: RuntimeDefault }
     service:
       app:
-        controller: echo
+        controller: podinfo
         ports:
           http:
             port: *port
