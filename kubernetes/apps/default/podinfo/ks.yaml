@@ -5,16 +5,16 @@ metadata:
   name: &app podinfo
   namespace: flux-system
 spec:
-  interval: 30m0s
-  path: ./kustomize
-  prune: true
-  retryInterval: 2m0s
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
+  targetNamespace: network
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  timeout: 3m0s
-  wait: true
+  path: ./kubernetes/apps/default/podinfo/app
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  wait: false
+  interval: 30m
+  timeout: 5m
+
