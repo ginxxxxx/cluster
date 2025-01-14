@@ -6,3 +6,4 @@ resources:
   - ./namespace.yaml
   - ./podinfo/ks.yaml
   - ./echo/ks.yaml
+  - ./hello-world/ks.yaml
