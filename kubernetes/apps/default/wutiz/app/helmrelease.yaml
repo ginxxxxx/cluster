@@ -34,7 +34,7 @@ spec:
               HTTP_PORT: &port 3000
             probes:
               liveness: &probes
-                enabled: true
+                enabled: false
                 custom: true
                 spec:
                   httpGet:
