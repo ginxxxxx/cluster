@@ -5,9 +5,6 @@ metadata:
   name: ceph-cluster
   namespace: rook-ceph
 spec:
-  dependsOn:
-    - name: rook-ceph-operator
-      namespace: rook-ceph
   cephVersion:
     image: quay.io/ceph/ceph:v19.2.0
   monitoring:
