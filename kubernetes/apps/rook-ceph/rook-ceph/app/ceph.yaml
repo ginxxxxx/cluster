@@ -13,6 +13,7 @@ spec:
     allowMultiplePerNode: false
   dashboard:
     enabled: true
+    ssl: false
   storage:
     useAllNodes: true
     useAllDevices: true
