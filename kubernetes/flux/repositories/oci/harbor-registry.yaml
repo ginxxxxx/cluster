@@ -7,3 +7,5 @@ metadata:
 spec:
   interval: 5h
   url: oci://registry-1.docker.io/bitnamicharts/harbor
+  ref:
+    tag: 24.1.0
