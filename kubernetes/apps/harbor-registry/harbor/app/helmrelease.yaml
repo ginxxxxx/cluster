@@ -7,7 +7,7 @@ metadata:
   namespace: harbor-registry
 spec:
   interval: 30m
-  timeout: 1h
+  timeout: 5m
   chartRef:
     kind: OCIRepository
     name: harbor-registry
@@ -21,7 +21,7 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    externalURL: "https://registry.${SECRET_DOMAIN}"
+    externalURL: https://registry.circlehard.com
     adminPassword: changeme
     persistence:
       persistentVolumeClaim:
