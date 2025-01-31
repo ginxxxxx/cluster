@@ -7,14 +7,10 @@ metadata:
   namespace: harbor-registry
 spec:
   interval: 30m
-  chart:
-    spec:
-      chart: harbor
-      version: "<25.0.0"
-      sourceRef:
-        kind: HelmRepository
-        name: harbor-registry
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: harbor-registry
+    namespace: flux-system
   install:
     remediation:
       retries: 3

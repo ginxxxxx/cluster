@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: harbor-registry
+  namespace: flux-system
+spec:
+  interval: 5h
+  url: oci://registry-1.docker.io/bitnamicharts/harbor
+  ref:
+    tag: latest
