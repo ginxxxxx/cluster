@@ -6,4 +6,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5h
-  url: oci://registry-1.docker.io/bitnamicharts/harbor
+  url: oci://registry-1.docker.io/bitnamicharts/harbor:24.1.0
