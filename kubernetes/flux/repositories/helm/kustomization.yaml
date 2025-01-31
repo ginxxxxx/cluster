@@ -8,6 +8,7 @@ resources:
   - ./coredns.yaml
   - ./external-dns.yaml
   - ./fluxcd-community.yaml
+  - ./harbor-registry.yaml
   - ./ingress-nginx.yaml
   - ./jetstack.yaml
   - ./k8s-gateway.yaml

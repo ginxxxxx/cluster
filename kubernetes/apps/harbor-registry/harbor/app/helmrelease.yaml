@@ -1,0 +1,48 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: harbor-registry
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: harbor
+      version: "<25.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: harbor-registry
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    externalURL: "https://registry.${SECRET_DOMAIN}"
+    adminPassword: changeme
+    persistence:
+      persistentVolumeClaim:
+        registry:
+          size: 50Gi
+    core:
+      updateStrategy:
+        type: Recreate
+    jobservice:
+      updateStrategy:
+        type: Recreate
+    registry:
+      updateStrategy:
+        type: Recreate
+    exposureType: ingress
+    ingress:
+      core:
+        className: external
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+        hostname: "registry.${SECRET_DOMAIN}"
+        tls: true
