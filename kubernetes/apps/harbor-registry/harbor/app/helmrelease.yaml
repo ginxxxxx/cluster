@@ -37,8 +37,8 @@ spec:
         type: Recreate
     exposureType: ingress
     ingress:
+      className: external
       core:
-        className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
         hostname: "registry.${SECRET_DOMAIN}"
