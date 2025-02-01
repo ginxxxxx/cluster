@@ -8,6 +8,8 @@ spec:
   cephVersion:
     image: quay.io/ceph/ceph:v19.2.0
   dataDirHostPath: /var/lib/rook
+  monitoring:
+    enabled: true
   mon:
     count: 1
     allowMultiplePerNode: false
